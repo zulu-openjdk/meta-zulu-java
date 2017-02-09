@@ -1,4 +1,5 @@
 
+PV = "1.8.0"
 PV_UPDATE = "91"
 BUILD_NUMBER = "8.0.91"
 SUFFIX = "linux_x64"
@@ -13,7 +14,7 @@ DESCRIPTION = "This the Embedded JDK for the 64 bit Intel architecture from \
 
 BBCLASSEXTEND = "native"
 
-LICENSE = "GPLv2-with-classpath-exception"
+LICENSE = "GPL-2.0-with-classpath-exception"
 LIC_FILES_CHKSUM = "file://zulu8.14.0.1-jdk${BUILD_NUMBER}-${SUFFIX}/LICENSE;md5=7b4baeedfe2d40cb03536573bc2c89b1"
 
 SRC_URI="http://cdn.azul.com/zulu/bin/zulu8.14.0.1-jdk${BUILD_NUMBER}-${SUFFIX}.tar.gz"
@@ -25,10 +26,10 @@ PR = "u${PV_UPDATE}"
 S = "${WORKDIR}"
 
 do_install () {
-  install -d -m 0755 ${D}${datadir}/zulu-1.8.0_${PV_UPDATE}
-  cp -a ${S}/zulu8.14.0.1-jdk${BUILD_NUMBER}-${SUFFIX}/* ${D}${datadir}/zulu-1.8.0_${PV_UPDATE}
+  install -d -m 0755 ${D}${datadir}/zulu-${PV}_${PV_UPDATE}
+  cp -a ${S}/zulu8.14.0.1-jdk${BUILD_NUMBER}-${SUFFIX}/* ${D}${datadir}/zulu-${PV}_${PV_UPDATE}
   install -d -m 0755 ${D}${bindir}
-  ln -sf ${datadir}/zulu-1.8.0_${PV_UPDATE}/bin/java ${D}${bindir}/java
+  ln -sf ${datadir}/zulu-${PV}_${PV_UPDATE}/bin/java ${D}${bindir}/java
 }
 
 # All the files are provided in a binaray package, and keeping all the

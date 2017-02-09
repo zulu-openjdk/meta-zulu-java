@@ -1,4 +1,5 @@
 
+PV = "1.8.0"
 PV_UPDATE = "102"
 BUILD_NUMBER = "8.17.0.21"
 SUFFIX = "eval-linux_aarch32hf"
@@ -16,7 +17,7 @@ BBCLASSEXTEND = "native"
 LICENSE = "GPL-2.0-with-classpath-exception"
 LIC_FILES_CHKSUM = "file://ezdk-${PV}_${PV_UPDATE}-${BUILD_NUMBER}-${SUFFIX}/LICENSE;md5=7b4baeedfe2d40cb03536573bc2c89b1"
 
-SRC_URI="http://cdn.azul.com/zulu-embedded/bin/ezdk-1.8.0_${PV_UPDATE}-${BUILD_NUMBER}-${SUFFIX}.tar.gz"
+SRC_URI="http://cdn.azul.com/zulu-embedded/bin/ezdk-${PV}_${PV_UPDATE}-${BUILD_NUMBER}-${SUFFIX}.tar.gz"
 
 SRC_URI[md5sum] = "ce9e6e2f701f134b734c05c4607dc7b3"
 SRC_URI[sha256sum] = "fa0fffc710d6d2bbf5a2cc1b8b7896a9be7c05e9c7cf8761ee0fca8b0e29edf8"

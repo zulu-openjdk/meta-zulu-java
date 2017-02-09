@@ -1,4 +1,5 @@
 
+PV = "1.8.0"
 PV_UPDATE = "102"
 BUILD_NUMBER = "8.17.0.19"
 SUFFIX = "eval-linux_aarch32sf"
@@ -13,10 +14,10 @@ DESCRIPTION = "This the Embedded JDK for the 32 bit ARM architecture from \
 
 BBCLASSEXTEND = "native"
 
-LICENSE = "GPLv2-with-classpath-exception"
+LICENSE = "GPL-2.0-with-classpath-exception"
 LIC_FILES_CHKSUM = "file://ezdk-${PV}_${PV_UPDATE}-${BUILD_NUMBER}-${SUFFIX}/LICENSE;md5=7b4baeedfe2d40cb03536573bc2c89b1"
 
-SRC_URI="http://cdn.azul.com/zulu-embedded/bin/ezdk-1.8.0_${PV_UPDATE}-${BUILD_NUMBER}-${SUFFIX}.tar.gz"
+SRC_URI="http://cdn.azul.com/zulu-embedded/bin/ezdk-${PV}_${PV_UPDATE}-${BUILD_NUMBER}-${SUFFIX}.tar.gz"
 
 SRC_URI[md5sum] = "f902e3a2b8616f8cfc021c69be427148"
 SRC_URI[sha256sum] = "e44f2cba3ebf56f99288a9d6e199ffb6f8376d74116fc44c777bf7f32e9026fa"
