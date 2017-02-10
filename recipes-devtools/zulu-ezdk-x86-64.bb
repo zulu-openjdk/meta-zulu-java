@@ -38,5 +38,5 @@ do_install () {
 INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
 
 FILES_${PN} = "/usr/"
-RPROVIDES_${PN} = "java2-runtime java2-vm"
+RPROVIDES_${PN} = "zulu-jdk"
 PROVIDES += "virtual/java"
