@@ -41,3 +41,5 @@ FILES_${PN} = "/usr/"
 RPROVIDES_${PN} = "zulu-jdk"
 PROVIDES += "virtual/java"
 
+DEPENDS = "alsa-lib libxi libxrender libxtst"
+
