@@ -43,3 +43,17 @@ PROVIDES += "virtual/java"
 
 DEPENDS = "alsa-lib libxi libxrender libxtst"
 
+FILES_${PN}-doc = " \
+	${datadir}/ezdk-${PV}_${PV_UPDATE}/jre/lib/*/*.diz \
+	${datadir}/ezdk-${PV}_${PV_UPDATE}/jre/lib/*.diz \
+	${datadir}/ezdk-${PV}_${PV_UPDATE}/jre/lib/*/client/*.diz \
+	${datadir}/ezdk-${PV}_${PV_UPDATE}/jre/lib/*/jli/*.diz \
+	${datadir}/ezdk-${PV}_${PV_UPDATE}/man/ \
+	"
+
+FILES_${PN}-dev = " \
+	${datadir}/ezdk-${PV}_${PV_UPDATE}/src.zip \
+	${datadir}/ezdk-${PV}_${PV_UPDATE}/demo/ \
+	${datadir}/ezdk-${PV}_${PV_UPDATE}/sample/ \
+	${datadir}/ezdk-${PV}_${PV_UPDATE}/include/ \
+	"

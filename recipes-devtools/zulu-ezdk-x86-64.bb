@@ -43,3 +43,17 @@ PROVIDES += "virtual/java"
 
 DEPENDS = "alsa-lib libxi libxrender libxtst"
 
+FILES_${PN}-doc = " \
+	${datadir}/zulu-${PV}_${PV_UPDATE}/jre/lib/*/*.diz \
+	${datadir}/zulu-${PV}_${PV_UPDATE}/jre/lib/*.diz \
+	${datadir}/zulu-${PV}_${PV_UPDATE}/jre/lib/*/client/*.diz \
+	${datadir}/zulu-${PV}_${PV_UPDATE}/jre/lib/*/jli/*.diz \
+	${datadir}/zulu-${PV}_${PV_UPDATE}/man/ \
+	"
+
+FILES_${PN}-dev = " \
+	${datadir}/zulu-${PV}_${PV_UPDATE}/src.zip \
+	${datadir}/zulu-${PV}_${PV_UPDATE}/demo/ \
+	${datadir}/zulu-${PV}_${PV_UPDATE}/sample/ \
+	${datadir}/zulu-${PV}_${PV_UPDATE}/include/ \
+	"
