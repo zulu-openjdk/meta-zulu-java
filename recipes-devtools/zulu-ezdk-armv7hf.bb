@@ -38,7 +38,7 @@ do_install () {
 INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
 
 FILES_${PN} = "/usr/"
-RPROVIDES_${PN} = "zulu-jdk"
+RPROVIDES_${PN} = "zulu-jdk virtual/java"
 PROVIDES += "virtual/java"
 
 DEPENDS = "alsa-lib libxi libxrender libxtst"
