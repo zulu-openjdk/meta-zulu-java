@@ -1,8 +1,9 @@
 
-PV = "1.8.0"
-PV_UPDATE = "131"
-BUILD_NUMBER = "8.21.0.57"
-SUFFIX = "eval-linux_aarch32hf"
+PV = "8"
+ZULU_VERSION = "8.48.3.246"
+JDK_VERSION = "8.0.265"
+SUFFIX = "linux_aarch32hf"
+ARCHIVE_NAME = "zulu${ZULU_VERSION}-ca-jdk${JDK_VERSION}-${SUFFIX}"
 
 SUMMARY = "Azul Zulu Java Development Kit (JDK) binaries"
 DESCRIPTION = "This the Embedded JDK for the 32 bit ARM architecture from \
@@ -15,21 +16,21 @@ DESCRIPTION = "This the Embedded JDK for the 32 bit ARM architecture from \
 BBCLASSEXTEND = "native"
 
 LICENSE = "GPL-2.0-with-classpath-exception"
-LIC_FILES_CHKSUM = "file://ezdk-${PV}_${PV_UPDATE}-${BUILD_NUMBER}-${SUFFIX}/LICENSE;md5=3e0b59f8fac05c3c03d4a26bbda13f8f"
+LIC_FILES_CHKSUM = "file://${ARCHIVE_NAME}/LICENSE;md5=3e0b59f8fac05c3c03d4a26bbda13f8f"
 
-SRC_URI="http://cdn.azul.com/zulu-embedded/bin/ezdk-${PV}_${PV_UPDATE}-${BUILD_NUMBER}-${SUFFIX}.tar.gz"
+SRC_URI="https://cdn.azul.com/zulu-embedded/bin/${ARCHIVE_NAME}.tar.gz"
 
-SRC_URI[md5sum] = "a61482271dd42c0ee25d97ce5b672427"
-SRC_URI[sha256sum] = "abd354b0f477962014d72fa8404a355152ed083b8a989e325362470fb5b0e2b0"
+SRC_URI[md5sum] = "64114fe973a43faf44b4870bcfeb79ac"
+SRC_URI[sha256sum] = "210f82991014fb0913133eb3433b370201d95a48c11ac4ace017bb59846feba8"
 
-PR = "u${PV_UPDATE}"
+PR = "u${JDK_VERSION}"
 S = "${WORKDIR}"
 
 do_install () {
-  install -d -m 0755 ${D}${datadir}/ezdk-${PV}_${PV_UPDATE}
-  cp -a ${S}/ezdk-${PV}_${PV_UPDATE}-${BUILD_NUMBER}-${SUFFIX}/* ${D}${datadir}/ezdk-${PV}_${PV_UPDATE}
+  install -d -m 0755 ${D}${libdir}/jvm
+  cp -a ${S}/${ARCHIVE_NAME} ${D}${libdir}/jvm
   install -d -m 0755 ${D}${bindir}
-  ln -sf ${datadir}/ezdk-${PV}_${PV_UPDATE}/bin/java ${D}${bindir}/java
+  lnr ${D}${libdir}/jvm/${ARCHIVE_NAME}/bin/java ${D}${bindir}/java
 }
 
 # All the files are provided in a binaray package, and keeping all the
@@ -37,6 +38,8 @@ do_install () {
 # Avoid these packaging failure by skiping all the QA checks
 INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
 
+PACKAGE_BEFORE_PN = "${PN}-src"
+FILES_${PN}-src = "${libdir}/jvm/${ARCHIVE_NAME}/src.zip"
 FILES_${PN} = "/usr/"
 RPROVIDES_${PN} = "zulu-jdk virtual/java"
 PROVIDES += "virtual/java"
